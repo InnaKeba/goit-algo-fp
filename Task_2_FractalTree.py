@@ -13,10 +13,8 @@ def pythagoras_tree_lines(t, branch_length, level, max_level):
     current_b = int(base_color_b * color_intensity_factor + 255 * (1 - color_intensity_factor))
     t.pencolor((min(255, current_r), min(255, current_g), min(255, current_b)))
 
-    # Товщина лінії
     t.pensize(max(1, level * 0.6))
 
-    # Малюємо гілку
     t.forward(branch_length)
     pos = t.position()
     head = t.heading()
