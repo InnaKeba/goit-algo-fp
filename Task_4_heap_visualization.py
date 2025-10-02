@@ -33,7 +33,7 @@ def add_edges(graph, node, pos, x=0, y=0, layer=1):
             add_edges(graph, node.right, pos, x=r, y=y - 1, layer=layer + 1)
     return graph
 
-def draw_heap(heap_list):
+def draw_heap(heap_list, filename="heap_visualization.png"):
     root = build_heap_tree(heap_list)
     tree = nx.DiGraph()
     pos = {root.id: (0, 0)}
@@ -45,8 +45,9 @@ def draw_heap(heap_list):
     plt.figure(figsize=(8, 5))
     nx.draw(tree, pos=pos, labels=labels, arrows=False, node_size=2500, node_color=colors)
     plt.title("Візуалізація бінарної купи")
+
+    plt.savefig(filename, format='png') #Збереження зображення у файл
     plt.show()
 
 heap = [0, 4, 1, 5, 10, 3]
-
 draw_heap(heap)
