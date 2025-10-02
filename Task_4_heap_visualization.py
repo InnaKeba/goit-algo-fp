@@ -33,7 +33,7 @@ def add_edges(graph, node, pos, x=0, y=0, layer=1):
             add_edges(graph, node.right, pos, x=r, y=y - 1, layer=layer + 1)
     return graph
 
-def draw_heap(heap_list, filename="heap_visualization.png"):
+def draw_heap(heap_list, filename="Task_4_heap_visualization.png"):
     root = build_heap_tree(heap_list)
     tree = nx.DiGraph()
     pos = {root.id: (0, 0)}
