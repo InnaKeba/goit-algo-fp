@@ -12,13 +12,11 @@ def pythagoras_tree_lines(t, branch_length, level, max_level):
     current_g = int(base_color_g * color_intensity_factor + 255 * (1 - color_intensity_factor))
     current_b = int(base_color_b * color_intensity_factor + 255 * (1 - color_intensity_factor))
     t.pencolor((min(255, current_r), min(255, current_g), min(255, current_b)))
-
     t.pensize(max(1, level * 0.6))
 
     t.forward(branch_length)
     pos = t.position()
     head = t.heading()
-
     new_branch_length = branch_length * 0.75
 
     # Ліва гілка
@@ -32,7 +30,6 @@ def pythagoras_tree_lines(t, branch_length, level, max_level):
     # Права гілка
     t.right(35)
     pythagoras_tree_lines(t, new_branch_length, level - 1, max_level)
-
     t.penup()
     t.goto(pos)
     t.setheading(head)
@@ -42,7 +39,7 @@ def pythagoras_tree_lines(t, branch_length, level, max_level):
 def setup_tree_lines(max_level):
     screen = turtle.Screen()
     screen.setup(width=800, height=800)
-    screen.title("Фрактал 'Дерево Піфагора' (Лінії) - Python Turtle")
+    screen.title("Фрактал Дерево Піфагора")
     screen.colormode(255)
 
     t = turtle.Turtle()
@@ -57,7 +54,12 @@ def setup_tree_lines(max_level):
     screen.tracer(0, 0)
     pythagoras_tree_lines(t, 100, max_level, max_level)
     screen.tracer(1, 1)
-    screen.mainloop()
+
+    # Збереження у файл EPS
+    canvas = screen.getcanvas()
+    canvas.postscript(file="task_2_tree.eps")
+
+    turtle.done()
 
 while True:
     try:
@@ -68,6 +70,6 @@ while True:
             continue
         break
     except ValueError:
-        print("Невірний ввід. Введіть ціле число.")
+        print("Введіть ціле число.")
 
 setup_tree_lines(recursion_level)
