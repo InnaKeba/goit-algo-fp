@@ -57,7 +57,7 @@ def setup_tree_lines(max_level):
 
     # Збереження у файл EPS
     canvas = screen.getcanvas()
-    canvas.postscript(file="task_2_tree.eps")
+    canvas.postscript(file="Task_2_tree.eps")
 
     turtle.done()
 
