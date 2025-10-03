@@ -95,9 +95,9 @@ heap = [0, 4, 1, 5, 10, 3]
 # BFS
 root = build_heap_tree(heap)
 bfs_nodes = bfs_color(root)
-draw_colored_traversal(root, bfs_nodes, "Обхід у ширину (BFS)", "task_5_bfs.png")
+draw_colored_traversal(root, bfs_nodes, "Обхід у ширину (BFS)", "Task_5_bfs.png")
 
 # DFS
 root = build_heap_tree(heap)
 dfs_nodes = dfs_color(root)
-draw_colored_traversal(root, dfs_nodes, "Обхід у глибину (DFS)", "task_5_dfs.png")
+draw_colored_traversal(root, dfs_nodes, "Обхід у глибину (DFS)", "Task_5_dfs.png")
